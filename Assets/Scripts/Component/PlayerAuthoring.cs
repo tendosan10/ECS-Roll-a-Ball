@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
+using Unity.Burst;
 
 public struct Player : IComponentData
 {
     public float Speed;
+    public float Horizontal;
+    public float Vertical;
 }
 
 public class PlayerAuthoring : MonoBehaviour
@@ -18,6 +19,22 @@ public class PlayerAuthoring : MonoBehaviour
         {
             var data = new Player() { Speed = authoring.Speed };
             AddComponent(GetEntity(TransformUsageFlags.None), data);
+        }
+    }
+}
+
+[BurstCompile]
+public partial struct SamplePlayerInput : ISystem
+{
+    public void OnUpdate(ref SystemState state)
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        foreach (var playerInput in SystemAPI.Query<RefRW<Player>>())
+        {
+            playerInput.ValueRW.Horizontal = horizontal;
+            playerInput.ValueRW.Vertical = vertical;
         }
     }
 }
