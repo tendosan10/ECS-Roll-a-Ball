@@ -28,7 +28,7 @@ public partial struct PlayerMovementSystem : ISystem
     }
 }
 
-[UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
+[UpdateInGroup(typeof(PhysicsSystemGroup))]
 public partial struct PlayerPosModification : ISystem
 {
     public void OnCreate(ref SystemState state)

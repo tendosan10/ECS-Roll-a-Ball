@@ -4,6 +4,7 @@ using Unity.Transforms;
 using Unity.Mathematics;
 using UnityEngine;
 
+[BurstCompile]
 public partial struct PickUpRotateSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
