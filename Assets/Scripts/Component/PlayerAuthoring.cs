@@ -17,15 +17,20 @@ public class PlayerAuthoring : MonoBehaviour
     {
         public override void Bake(PlayerAuthoring authoring)
         {
-            var data = new Player() { Speed = authoring.Speed };
-            AddComponent(GetEntity(TransformUsageFlags.None), data);
+            var data = new Player() {Speed = authoring.Speed };
+            AddComponent(GetEntity(TransformUsageFlags.Dynamic), data);
         }
     }
 }
 
-[BurstCompile]
 public partial struct SamplePlayerInput : ISystem
 {
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<Player>();
+    }
+
+    [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
         float horizontal = Input.GetAxis("Horizontal");
