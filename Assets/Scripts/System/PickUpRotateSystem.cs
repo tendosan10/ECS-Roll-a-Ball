@@ -1,4 +1,4 @@
-using Unity.Burst;
+/*using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
@@ -24,12 +24,4 @@ public partial struct PickUpRotateSystem : ISystem
     }
 }
 
-[BurstCompile]
-partial struct RotationJob : IJobEntity
-{
-    public float deltaTime;
-    void Execute(in PickUp pickUp, ref LocalTransform transform)
-    {
-        transform.Rotation = math.mul(quaternion.AxisAngle(new float3(15, 30, 45), 0.05f * deltaTime), math.normalize(transform.Rotation));
-    }
-}
+*/
