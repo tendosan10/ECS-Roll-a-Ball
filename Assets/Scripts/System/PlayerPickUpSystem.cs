@@ -70,11 +70,11 @@ struct PickUpJob : ITriggerEventsJob
     }
 }
 
-
 [BurstCompile]
 partial struct RotationJob : IJobEntity
 {
     public float deltaTime;
+    [BurstCompile]
     void Execute(in PickUp pickUp, ref LocalTransform transform)
     {
         transform.Rotation = math.mul(quaternion.AxisAngle(new float3(15, 30, 45), 0.05f * deltaTime), math.normalize(transform.Rotation));
