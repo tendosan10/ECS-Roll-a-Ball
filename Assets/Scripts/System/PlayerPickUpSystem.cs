@@ -64,7 +64,6 @@ struct PickUpJob : ITriggerEventsJob
         var (pickUpEntity, playerEntity) =
           aIsPickUp ? (ev.EntityA, ev.EntityB) : (ev.EntityB, ev.EntityA);
 
-        UnityEngine.Debug.Log("ê⁄êG");
         EntityCommandBuffer.DestroyEntity(pickUpEntity);
         EntityCommandBuffer.AddComponent<CountUpComponent>(scoreEntity);
     }
