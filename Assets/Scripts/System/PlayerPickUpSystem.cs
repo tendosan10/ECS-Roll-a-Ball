@@ -14,6 +14,7 @@ public partial struct PlayerPickUpSystem : ISystem
     {
         state.RequireForUpdate<PickUp>();
         state.RequireForUpdate<Player>();
+        state.RequireForUpdate<Score>();
     }
 
     [BurstCompile]
@@ -25,7 +26,8 @@ public partial struct PlayerPickUpSystem : ISystem
         {
             PlayerGroup = SystemAPI.GetComponentLookup<Player>(),
             PickUpGroup = SystemAPI.GetComponentLookup<PickUp>(),
-            EntityCommandBuffer = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged)
+            EntityCommandBuffer = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged),
+            scoreEntity = SystemAPI.GetSingletonEntity<Score>()
         };
         state.Dependency = job.Schedule(simulation, state.Dependency);
 
@@ -45,6 +47,7 @@ struct PickUpJob : ITriggerEventsJob
     [ReadOnly] public ComponentLookup<Player> PlayerGroup;
     public ComponentLookup<PickUp> PickUpGroup;
     public EntityCommandBuffer EntityCommandBuffer;
+    public Entity scoreEntity;
 
     [BurstCompile]
     public void Execute(TriggerEvent ev)
@@ -63,6 +66,7 @@ struct PickUpJob : ITriggerEventsJob
 
         UnityEngine.Debug.Log("ê⁄êG");
         EntityCommandBuffer.DestroyEntity(pickUpEntity);
+        EntityCommandBuffer.AddComponent<CountUpComponent>(scoreEntity);
     }
 }
 

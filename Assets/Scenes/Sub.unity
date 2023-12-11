@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f6be07b2942f04a9ef782508f6de6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 5
 --- !u!1001 &898500269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1167,6 +1167,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1536ab03e691a04481c77c5b2bd0bb7, type: 3}
+--- !u!1 &1122202724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122202725}
+  - component: {fileID: 1122202726}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122202725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122202724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122202726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122202724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6774e4c45dd819349b415e0d1379adfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Initial: 0
 --- !u!1 &1326307132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1394,7 @@ GameObject:
   - component: {fileID: 1754630538}
   - component: {fileID: 1754630539}
   m_Layer: 0
-  m_Name: SubCamera
+  m_Name: EntityCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1696,7 +1741,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 34869069}
-  - {fileID: 1754630538}
   - {fileID: 1326307133}
   - {fileID: 612608377}
   - {fileID: 5163743820946375097}
@@ -1711,3 +1755,5 @@ SceneRoots:
   - {fileID: 363631298}
   - {fileID: 1603141120}
   - {fileID: 339184100}
+  - {fileID: 1754630538}
+  - {fileID: 1122202725}
