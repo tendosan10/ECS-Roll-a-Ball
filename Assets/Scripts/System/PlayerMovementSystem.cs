@@ -31,7 +31,6 @@ public partial struct PlayerMovementSystem : ISystem
 [UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
 public partial struct PlayerPosModification : ISystem
 {
-
     public void OnCreate(ref SystemState state)
     {
         state.RequireForUpdate<Player>();
