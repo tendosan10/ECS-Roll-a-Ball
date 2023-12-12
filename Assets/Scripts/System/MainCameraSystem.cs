@@ -2,11 +2,16 @@ using Unity.Entities;
 using Unity.Transforms;
 
 [UpdateInGroup(typeof(PresentationSystemGroup))]
-public partial class MainCameraSystem : SystemBase
+public partial struct MainCameraSystem : ISystem
 {
-    protected override void OnUpdate()
+    public void OnCreate(ref SystemState state)
     {
-        if (MainGameObjectCamera.Instance != null && SystemAPI.HasSingleton<MainEntityCamera>())
+        state.RequireForUpdate<MainEntityCamera>();
+    }
+
+    public void OnUpdate(ref SystemState state)
+    {
+        if (MainGameObjectCamera.Instance != null)
         {
             Entity mainEntityCameraEntity = SystemAPI.GetSingletonEntity<MainEntityCamera>();
             LocalToWorld targetLocalToWorld = SystemAPI.GetComponent<LocalToWorld>(mainEntityCameraEntity);
