@@ -8,7 +8,7 @@ using Unity.Physics.Systems;
 using Unity.Transforms;
 
 [UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
-public partial struct PlayerPickUpSystem : ISystem
+public partial struct PickUpSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
@@ -64,7 +64,7 @@ struct PickUpJob : ITriggerEventsJob
         var (pickUpEntity, playerEntity) =
           aIsPickUp ? (ev.EntityA, ev.EntityB) : (ev.EntityB, ev.EntityA);
 
-        EntityCommandBuffer.DestroyEntity(pickUpEntity);
+        EntityCommandBuffer.AddComponent<Disabled>(pickUpEntity);
         EntityCommandBuffer.AddComponent<CountUpComponent>(scoreEntity);
     }
 }

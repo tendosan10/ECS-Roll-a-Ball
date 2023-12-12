@@ -23,7 +23,7 @@ public class ScoreAuthoring : MonoBehaviour
         public override void Bake(ScoreAuthoring authoring)
         {
             var data = new Score() { Value = authoring.Initial };
-            AddComponent(GetEntity(TransformUsageFlags.Dynamic), data);
+            AddComponent(GetEntity(TransformUsageFlags.None), data);
         }
     }
 }
