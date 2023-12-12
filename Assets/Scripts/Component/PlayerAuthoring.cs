@@ -1,7 +1,6 @@
 using UnityEngine;
 using Unity.Entities;
 using Unity.Burst;
-using Unity.Mathematics;
 
 public struct Player : IComponentData
 {
@@ -25,7 +24,7 @@ public class PlayerAuthoring : MonoBehaviour
     }
 }
 
-public partial struct SamplePlayerInput : ISystem
+public partial struct PlayerInputSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
