@@ -8,6 +8,7 @@ public struct Player : IComponentData
     public float Speed;
     public float Horizontal;
     public float Vertical;
+    public float PosY;
 }
 
 public class PlayerAuthoring : MonoBehaviour
