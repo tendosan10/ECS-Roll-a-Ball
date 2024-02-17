@@ -41,6 +41,7 @@ public partial struct PickUpSystem : ISystem
     }
 }
 
+
 [BurstCompile]
 struct PickUpJob : ITriggerEventsJob
 {
