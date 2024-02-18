@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Entities;
 
+/// <summary>
+/// アイテムのタグ
+/// </summary>
 public struct PickUp : IComponentData
 {
-    
 }
 
 public class PickUpAuthoring : MonoBehaviour

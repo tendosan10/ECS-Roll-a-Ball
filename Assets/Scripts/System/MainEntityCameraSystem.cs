@@ -1,7 +1,10 @@
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 
+/// <summary>
+/// Subシーン上のCameraEntityをPlayerに追従させるシステム
+/// </summary>
 [BurstCompile]
 public partial struct MainEntityCameraSystem : ISystem
 {

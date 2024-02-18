@@ -1,7 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Entities;
 using Unity.Burst;
 
+/// <summary>
+/// Playerのコンポーネント
+/// </summary>
 public struct Player : IComponentData
 {
     public float Speed;
@@ -12,6 +15,7 @@ public struct Player : IComponentData
 
 public class PlayerAuthoring : MonoBehaviour
 {
+    [Header("Playerの移動スピード")]
     public float Speed;
 
     class Baker : Baker<PlayerAuthoring>
@@ -24,6 +28,9 @@ public class PlayerAuthoring : MonoBehaviour
     }
 }
 
+/// <summary>
+/// Playerコンポーネントに入力値を与える
+/// </summary>
 public partial struct PlayerInputSystem : ISystem
 {
     public void OnCreate(ref SystemState state)

@@ -1,6 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Gameシーン上のスコアUI
+/// </summary>
 public class ScoreGameObject : MonoBehaviour
 {
     public static ScoreGameObject instance;
@@ -21,6 +24,10 @@ public class ScoreGameObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 引数の値にUIテキストを変更
+    /// </summary>
+    /// <param name="value">引数にとる数値</param>
     public void SetText(int value)
     {
         _text.text = value.ToString();

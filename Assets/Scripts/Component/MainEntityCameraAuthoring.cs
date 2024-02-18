@@ -1,9 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using Unity.Burst;
 
+/// <summary>
+/// Subシーン上のCameraEntityとMainCameraの座標変化を同期するためのコンポーネント
+/// </summary>
 public struct MainEntityCamera : IComponentData
 {
     public float3 Offset;
@@ -22,6 +25,9 @@ public class MainEntityCameraAuthoring : MonoBehaviour
     }
 }
 
+/// <summary>
+/// CameraEntityとPlayerEntity間の座標のオフセットを記録する
+/// </summary>
 [UpdateBefore(typeof(MainEntityCameraSystem))]
 public partial struct MainCameraOffSet : ISystem
 {
@@ -39,6 +45,6 @@ public partial struct MainCameraOffSet : ISystem
         camera.ValueRW.Offset = SystemAPI.GetComponent<LocalTransform>(SystemAPI.GetSingletonEntity<MainEntityCamera>()).Position
             - SystemAPI.GetComponent<LocalTransform>(player).Position;
 
-        state.Enabled = false;
+        state.Enabled = false; //1度記録したら停止
     }
 }

@@ -1,6 +1,9 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Transforms;
 
+/// <summary>
+/// MainCameraをSubシーン上のCameraEntityと連動させるシステム
+/// </summary>
 [UpdateInGroup(typeof(PresentationSystemGroup))]
 public partial struct MainCameraSystem : ISystem
 {
